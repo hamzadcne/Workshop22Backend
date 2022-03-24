@@ -29,3 +29,6 @@ Route::get('/offers/{id}', [OffersController::class, 'show']);
 Route::post('/offer/{id?}', function ($id='offer1') {
     return 'Post Offer '.$id;
 });
+Route::get('/hello',function(){
+    return 'hello';
+});
