@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OffersController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     echo 'Hello Laravel';
 // });
 
-Route::get('/offers', [OffersController::class, 'list']);
+Route::get('/category', [OffersController::class, 'list']);
 Route::get('/offers/{id}', [OffersController::class, 'show']);
 
 Route::post('/offer/{id?}', function ($id='offer1') {
@@ -32,3 +33,5 @@ Route::post('/offer/{id?}', function ($id='offer1') {
 Route::get('/hello',function(){
     return 'hello';
 });
+
+Route::apiResource('category', CategoryController::class);
