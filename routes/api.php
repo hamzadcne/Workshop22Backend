@@ -25,13 +25,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // });
 
 Route::get('/category', [OffersController::class, 'list']);
-Route::get('/offers/{id}', [OffersController::class, 'show']);
+//Route::get('/offers/{id}', [OffersController::class, 'show']);
 
-Route::post('/offer/{id?}', function ($id='offer1') {
-    return 'Post Offer '.$id;
-});
+// Route::post('/offer/{id?}', function ($id='offer1') {
+//     return 'Post Offer '.$id;
+// });
 Route::get('/hello',function(){
     return 'hello';
 });
 
 Route::apiResource('category', CategoryController::class);
+Route::apiResource('offer', OffersController::class);

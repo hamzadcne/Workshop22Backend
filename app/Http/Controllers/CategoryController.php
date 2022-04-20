@@ -15,9 +15,9 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $name = $request->name;
+        //$name = $request->name;
         //$cats = DB::table('categories')->get();
-        $cats = Category::where('name', $name)->get();
+        $cats = Category::all();
         return $cats;
  
         // foreach ($cats as $cat) {
