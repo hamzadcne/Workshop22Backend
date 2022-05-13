@@ -36,3 +36,5 @@ Route::get('/hello',function(){
 
 Route::apiResource('category', CategoryController::class);
 Route::apiResource('offer', OffersController::class);
+
+Route::get('images/{type}/{id}','ImageController@fetch');
