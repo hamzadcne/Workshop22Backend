@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OffersController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,4 +38,4 @@ Route::get('/hello',function(){
 Route::apiResource('category', CategoryController::class);
 Route::apiResource('offer', OffersController::class);
 
-Route::get('images/{type}/{id}','ImageController@fetch');
+Route::get('images/{id}',[ImageController::class, 'fetch']);
