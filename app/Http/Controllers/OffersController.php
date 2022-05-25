@@ -41,8 +41,8 @@ class OffersController extends Controller
         } else if($request->hasFile('images')){
             
             foreach ($request->file('images') as $imagefile) {
-                $image = new Image;
                 $path = $imagefile->store('public/images/offers/'. $offer->id);
+                $image = new Image;
                 $image->url = $path;
                 $image->offer_id = $offer->id;
                 $image->save();

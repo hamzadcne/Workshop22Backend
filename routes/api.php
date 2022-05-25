@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OffersController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\UserAuthController;
+use App\Http\Controllers\AgencyAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +41,16 @@ Route::apiResource('category', CategoryController::class);
 Route::apiResource('offer', OffersController::class);
 
 Route::get('images/{id}',[ImageController::class, 'fetch']);
+
+Route::post('userregister',[UserAuthController::class, 'register']);
+Route::post('userlogin',[UserAuthController::class, 'login']);
+
+Route::post('agencyregister',[AgencyAuthController::class, 'register']);
+Route::post('agencylogin',[AgencyAuthController::class, 'login']);
+
+Route::middleware('auth:user')->get('/user', function (Request $request) {
+    return $request->user();
+});
+Route::middleware('auth:agency')->get('/agency', function (Request $request) {
+    return $request->user();
+});
